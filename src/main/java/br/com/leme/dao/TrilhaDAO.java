@@ -41,7 +41,7 @@ public class TrilhaDAO {
             return trilhas;
 
         } catch (SQLException e) {
-            throw new DatabaseException("listar trilhas");
+            throw new DatabaseException("listar trilhas", e);
         }
     }
 

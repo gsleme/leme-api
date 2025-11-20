@@ -11,9 +11,14 @@ import jakarta.ws.rs.ext.Provider;
 public class ExceptionHandler implements ExceptionMapper<Throwable> {
     @Override
     public Response toResponse(Throwable e) {
+        if (e instanceof ClientAPIException) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(
+                    new ErrorResponseDTO(e.getMessage())).build();
+        }
+
         if (e instanceof DatabaseException) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(new ErrorResponseDTO(
-                e.getMessage() + "Causa: " + e.getCause().getMessage())).build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(
+                    new ErrorResponseDTO(e.getMessage())).build();
         }
 
         if (e instanceof EntityNotFoundException) {
@@ -29,17 +34,21 @@ public class ExceptionHandler implements ExceptionMapper<Throwable> {
         }
 
         if (e instanceof NotAllowedException) {
-            return Response.status(Response.Status.METHOD_NOT_ALLOWED).entity(new ErrorResponseDTO(
-                "Requisição indisponível para este endpoint.")
-            ).build();
+            return Response.status(Response.Status.METHOD_NOT_ALLOWED).entity(
+                    new ErrorResponseDTO("Requisição indisponível para este endpoint.")).build();
         }
 
         if (e instanceof NotFoundException) {
-            return Response.status(Response.Status.NOT_FOUND).entity(new ErrorResponseDTO(
-                "Endpoint não encontrado.")
-            ).build();
+            return Response.status(Response.Status.NOT_FOUND).entity(
+                    new ErrorResponseDTO("Endpoint não encontrado.")).build();
         }
 
-        return Response.serverError().entity(new ErrorResponseDTO("Erro inesperado, verifique disponibilidade do servidor. " + e)).build();
+        if (e instanceof UnavaliableAPIException) {
+            return Response.status(Response.Status.NOT_FOUND).entity(
+                    new ErrorResponseDTO(e.getMessage())).build();
+        }
+
+        return Response.serverError().entity(
+                new ErrorResponseDTO("Erro inesperado, verifique disponibilidade do servidor. " + e)).build();
     }
 }

@@ -43,7 +43,7 @@ public class ModuloDAO {
             return modulos;
 
         } catch (SQLException e) {
-            throw new DatabaseException("listar módulos");
+            throw new DatabaseException("listar módulos", e);
         }
     }
 

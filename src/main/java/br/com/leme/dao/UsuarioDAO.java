@@ -45,7 +45,7 @@ public class UsuarioDAO {
             return usuarios;
 
         } catch (SQLException e) {
-            throw new DatabaseException("listar usuários");
+            throw new DatabaseException("listar usuários", e);
         }
     }
 

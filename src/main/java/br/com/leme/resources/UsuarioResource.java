@@ -2,6 +2,7 @@ package br.com.leme.resources;
 
 import br.com.leme.dto.*;
 import br.com.leme.services.UsuarioService;
+import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 
@@ -30,6 +31,7 @@ public class UsuarioResource {
 
     @POST
     @Path("/cadastrar")
+    @Transactional
     public Response register (CadastroRequestDTO request, @Context UriInfo info) {
         UsuarioResponseDTO response = service.register(request);
         UriBuilder builder = info.getAbsolutePathBuilder().path(response.id());
@@ -44,11 +46,13 @@ public class UsuarioResource {
 
     @PUT
     @Path("/{id}")
+    @Transactional
     public Response update (CadastroRequestDTO request, @PathParam("id") String id) {
         return Response.ok(service.update(request, id)).build();
     }
     @DELETE
     @Path("/{id}")
+    @Transactional
     public Response delete (@PathParam("id") String id) {
         service.delete(id);
         return Response.noContent().build();

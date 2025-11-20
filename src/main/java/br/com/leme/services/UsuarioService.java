@@ -62,23 +62,26 @@ public class UsuarioService {
 
     public LoginResponseDTO login (LoginRequestDTO request) {
         Optional<Usuario> usuario = dao.findAll().stream()
-                .filter(user -> Objects.equals(user.getEmail(), request.email())).findAny();
+                .filter(user -> user.getEmail().equals(request.email())).findAny();
+
         if (usuario.isEmpty()) {
             throw new EntityNotFoundException();
         }
 
-        if (!verifyHash(request.senha(), usuario.get().getSenha())) {
+        boolean senhaCorreta = verifyHash(request.senha(), usuario.get().getSenha());
+
+        if (!senhaCorreta) {
             throw new IncorrectPasswordException();
         }
 
-        return new LoginResponseDTO(
-            JwtUtils.generateToken(
-                usuario.get().getId().toString(),
-                usuario.get().getNome(),
-                usuario.get().getUsername(),
-                usuario.get().getEmail()
-            )
+        String token = JwtUtils.generateToken(
+            usuario.get().getId().toString(),
+            usuario.get().getNome(),
+            usuario.get().getUsername(),
+            usuario.get().getEmail()
         );
+
+        return new LoginResponseDTO(token);
     }
 
     public UsuarioResponseDTO update (CadastroRequestDTO request, String id) {

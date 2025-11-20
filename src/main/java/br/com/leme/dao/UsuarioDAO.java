@@ -75,7 +75,7 @@ public class UsuarioDAO {
             return usuario;
 
         } catch (SQLException e) {
-            throw new DatabaseException("encontrar usuário");
+            throw new DatabaseException("encontrar usuário", e);
         }
     }
 
@@ -98,14 +98,14 @@ public class UsuarioDAO {
             conn.close();
 
         } catch (SQLException e) {
-            throw new DatabaseException("registrar usuário");
+            throw new DatabaseException("registrar usuário", e);
         }
     }
 
     public void update (Usuario usuario) {
         try {
             Connection conn = factory.getConnection();
-            PreparedStatement statement = conn.prepareStatement("UPDATE lm_usuarios SET id_usuario = ?, nome = ?, username = ?, email = ?, senha = ?, area = ?, acessibilidade = ?, modulos_concluidos = ?, xp_total = ?, data_cadastro = ? WHERE id_usuario = ?");
+            PreparedStatement statement = conn.prepareStatement("UPDATE lm_usuarios SET nome = ?, username = ?, email = ?, senha = ?, area = ?, acessibilidade = ?, modulos_concluidos = ?, xp_total = ?, data_cadastro = ? WHERE id_usuario = ?");
             statement.setString(1, usuario.getNome());
             statement.setString(2, usuario.getUsername());
             statement.setString(3, usuario.getEmail());
@@ -121,7 +121,7 @@ public class UsuarioDAO {
             conn.close();
 
         } catch (SQLException e) {
-            throw new DatabaseException("atualizar usuário");
+            throw new DatabaseException("atualizar usuário", e);
         }
     }
 
@@ -135,7 +135,7 @@ public class UsuarioDAO {
             conn.close();
 
         } catch (SQLException e) {
-            throw new DatabaseException("remover usuário");
+            throw new DatabaseException("remover usuário", e);
         }
     }
 }

@@ -34,10 +34,10 @@ public class UsuarioDAO {
                     resultSet.getString(6),
                     resultSet.getString(7),
                     resultSet.getInt(8),
-                    resultSet.getInt(9),
-                    resultSet.getDate(10).toLocalDate()
+                    resultSet.getInt(9)
                 );
                 usuario.setId(UUID.fromString(resultSet.getString(1)));
+                usuario.setDataCadastro(resultSet.getDate(10).toLocalDate());
                 usuarios.add(usuario);
             }
             statement.close();
@@ -65,10 +65,10 @@ public class UsuarioDAO {
                     resultSet.getString(6),
                     resultSet.getString(7),
                     resultSet.getInt(8),
-                    resultSet.getInt(9),
-                    resultSet.getDate(10).toLocalDate()
+                    resultSet.getInt(9)
                 );
                 usuario.setId(UUID.fromString(resultSet.getString(1)));
+                usuario.setDataCadastro(resultSet.getDate(10).toLocalDate());
             }
             statement.close();
             conn.close();

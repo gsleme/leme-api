@@ -13,7 +13,6 @@ import br.com.leme.utils.JwtUtils;
 import br.com.leme.utils.PasswordUtils;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -52,8 +51,7 @@ public class UsuarioService {
             request.area(),
             request.acessibilidade(),
             request.modulosConcluidos(),
-            request.xpTotal(),
-            request.dataCadastro()
+            request.xpTotal()
         );
 
         dao.register(usuario);
@@ -93,15 +91,14 @@ public class UsuarioService {
             }
 
             Usuario usuario = new Usuario(
-                    request.nome(),
-                    request.username(),
-                    request.email(),
-                    request.senha(),
-                    request.area(),
-                    request.acessibilidade(),
-                    request.modulosConcluidos(),
-                    request.xpTotal(),
-                    request.dataCadastro()
+                request.nome(),
+                request.username(),
+                request.email(),
+                request.senha(),
+                request.area(),
+                request.acessibilidade(),
+                request.modulosConcluidos(),
+                request.xpTotal()
             );
             usuario.setId(UUID.fromString(id));
 

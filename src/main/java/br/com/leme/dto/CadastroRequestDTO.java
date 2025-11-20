@@ -1,7 +1,5 @@
 package br.com.leme.dto;
 
-import java.time.LocalDate;
-
 public record CadastroRequestDTO (
     String nome,
     String username,
@@ -10,6 +8,5 @@ public record CadastroRequestDTO (
     String area,
     String acessibilidade,
     int modulosConcluidos,
-    int xpTotal,
-    LocalDate dataCadastro
+    int xpTotal
 ) {}

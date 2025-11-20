@@ -18,7 +18,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, String username, String email, String senha, String area, String acessibilidade, int modulosConcluidos, int xpTotal, LocalDate dataCadastro) {
+    public Usuario(String nome, String username, String email, String senha, String area, String acessibilidade, int modulosConcluidos, int xpTotal) {
         this.id = UUID.randomUUID();
         this.nome = nome;
         this.username = username;
@@ -28,7 +28,7 @@ public class Usuario {
         this.acessibilidade = acessibilidade;
         this.modulosConcluidos = modulosConcluidos;
         this.xpTotal = xpTotal;
-        this.dataCadastro = dataCadastro;
+        this.dataCadastro = LocalDate.now();
     }
 
     public UUID getId() {

@@ -25,17 +25,17 @@ public class ProgressoService {
         }
 
         Progresso progresso = new Progresso(
-            request.idUsuario(),
-            request.idModulo(),
+            UUID.fromString(request.idUsuario()),
+            UUID.fromString(request.idModulo()),
             request.dataConclusao()
         );
 
         dao.register(progresso);
         return new ProgressoResponseDTO(
-                progresso.getId().toString(),
-                progresso.getIdUsuario(),
-                progresso.getIdUsuario(),
-                progresso.getDataConclusao()
+            progresso.getId().toString(),
+            progresso.getIdUsuario().toString(),
+            progresso.getIdModulo().toString(),
+            progresso.getDataConclusao()
         );
     }
 }

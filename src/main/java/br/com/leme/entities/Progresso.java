@@ -5,14 +5,14 @@ import java.util.UUID;
 
 public class Progresso {
     private UUID id;
-    private String idUsuario;
-    private String idModulo;
+    private UUID idUsuario;
+    private UUID idModulo;
     private LocalDate dataConclusao;
 
     public Progresso() {
     }
 
-    public Progresso(String idUsuario, String idModulo, LocalDate dataConclusao) {
+    public Progresso(UUID idUsuario, UUID idModulo, LocalDate dataConclusao) {
         this.id = UUID.randomUUID();
         this.idUsuario = idUsuario;
         this.idModulo = idModulo;
@@ -27,19 +27,19 @@ public class Progresso {
         this.id = id;
     }
 
-    public String getIdUsuario() {
+    public UUID getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(UUID idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public String getIdModulo() {
+    public UUID getIdModulo() {
         return idModulo;
     }
 
-    public void setIdModulo(String idModulo) {
+    public void setIdModulo(UUID idModulo) {
         this.idModulo = idModulo;
     }
 

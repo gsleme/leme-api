@@ -20,8 +20,8 @@ public class ProgressoDAO {
             Connection conn = factory.getConnection();
             PreparedStatement statement = conn.prepareStatement("INSERT INTO lm_progressos (id_progresso, id_usuario, id_modulo, data_conclusao) VALUES (?,?,?,?)");
             statement.setString(1, progresso.getId().toString());
-            statement.setString(2, progresso.getIdUsuario());
-            statement.setString(3, progresso.getIdModulo());
+            statement.setString(2, progresso.getIdUsuario().toString());
+            statement.setString(3, progresso.getIdModulo().toString());
             statement.setDate(4, java.sql.Date.valueOf(progresso.getDataConclusao()));
             statement.execute();
             statement.close();

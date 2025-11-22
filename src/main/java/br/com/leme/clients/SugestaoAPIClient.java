@@ -21,7 +21,7 @@ public class SugestaoAPIClient {
     public static String getSugestao (SugestaoRequestDTO request) {
         try {
             // versão via body
-            HttpPost requestHttp = new HttpPost("https://leme-python.onrender.com/sugestao/");
+            HttpPost requestHttp = new HttpPost("https://leme-ia.onrender.com/suggest_trilha");
             String json = mapper.writeValueAsString(request);
             requestHttp.setEntity(new StringEntity(json));
             requestHttp.setHeader("Content-Type", "application/json");

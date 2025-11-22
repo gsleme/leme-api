@@ -1,6 +1,6 @@
 package br.com.leme.dto;
 
 public record PrevisaoAPIResponseDTO(
-    double taxaSucesso,
+    double taxa_sucesso,
     String categoria
 ) {}

@@ -55,7 +55,7 @@ public class UsuarioDAO {
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_usuarios WHERE id_usuario = ?");
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
-            Usuario usuario = new Usuario();
+            Usuario usuario = null;
             if (resultSet.next()) {
                 usuario = new Usuario (
                     resultSet.getString(2),

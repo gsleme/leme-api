@@ -12,11 +12,11 @@ public class Progresso {
     public Progresso() {
     }
 
-    public Progresso(UUID idUsuario, UUID idModulo, LocalDate dataConclusao) {
+    public Progresso(UUID idUsuario, UUID idModulo) {
         this.id = UUID.randomUUID();
         this.idUsuario = idUsuario;
         this.idModulo = idModulo;
-        this.dataConclusao = dataConclusao;
+        this.dataConclusao = LocalDate.now();
     }
 
     public UUID getId() {

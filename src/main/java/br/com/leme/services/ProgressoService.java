@@ -26,8 +26,7 @@ public class ProgressoService {
 
         Progresso progresso = new Progresso(
             UUID.fromString(request.idUsuario()),
-            UUID.fromString(request.idModulo()),
-            request.dataConclusao()
+            UUID.fromString(request.idModulo())
         );
 
         dao.register(progresso);

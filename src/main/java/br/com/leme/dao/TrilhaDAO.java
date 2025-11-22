@@ -51,7 +51,7 @@ public class TrilhaDAO {
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_trilhas WHERE id_trilha = ?");
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
-            Trilha trilha = new Trilha();
+            Trilha trilha = null;
             if (resultSet.next()) {
                 trilha = new Trilha (
                     resultSet.getString(2),

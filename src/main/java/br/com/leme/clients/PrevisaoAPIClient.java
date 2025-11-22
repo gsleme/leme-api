@@ -20,7 +20,7 @@ public class PrevisaoAPIClient {
 
     public static PrevisaoAPIResponseDTO getPrevisao (PrevisaoRequestDTO request) {
         try {
-            HttpPost requestHttp = new HttpPost("https://leme-python.onrender.com/previsoes/");
+            HttpPost requestHttp = new HttpPost("https://leme-ia.onrender.com/predict_sucesso");
             String json = mapper.writeValueAsString(request);
             requestHttp.setEntity(new StringEntity(json));
             requestHttp.setHeader("Content-Type", "application/json");

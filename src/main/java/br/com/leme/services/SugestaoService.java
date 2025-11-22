@@ -5,7 +5,6 @@ import br.com.leme.dao.SugestaoDAO;
 import br.com.leme.dto.SugestaoRequestDTO;
 import br.com.leme.dto.SugestaoResponseDTO;
 import br.com.leme.entities.Sugestao;
-import br.com.leme.exceptions.DatabaseException;
 import br.com.leme.exceptions.EntityNotFoundException;
 import br.com.leme.exceptions.InvalidIdFormatException;
 
@@ -22,7 +21,10 @@ public class SugestaoService {
         try {
             UUID uuid = UUID.fromString(id);
             Sugestao sugestao = dao.findById(id);
-            if (sugestao == null) throw  new EntityNotFoundException("sugestão");
+            if (sugestao == null) {
+                throw new EntityNotFoundException("sugestão");
+            };
+
             return toResponse(sugestao);
 
         } catch (IllegalArgumentException e) {

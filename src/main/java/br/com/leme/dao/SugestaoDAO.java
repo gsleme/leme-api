@@ -23,7 +23,8 @@ public class SugestaoDAO {
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_sugestoes WHERE id_sugestao = ?");
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
-            Sugestao sugestao = new Sugestao();
+            Sugestao sugestao = null;
+
             if (resultSet.next()) {
                 sugestao = new Sugestao (
                     UUID.fromString(resultSet.getString(2)),

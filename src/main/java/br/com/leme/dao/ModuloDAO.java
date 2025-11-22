@@ -53,9 +53,9 @@ public class ModuloDAO {
             PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_modulos WHERE id_modulo = ?");
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
-            Modulo modulo = new Modulo();
+            Modulo modulo = null;
             if (resultSet.next()) {
-                modulo= new Modulo (
+                modulo = new Modulo (
                     UUID.fromString(resultSet.getString(2)),
                     resultSet.getString(3),
                     resultSet.getString(4),

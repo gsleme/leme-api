@@ -45,7 +45,7 @@ public class SugestaoDAO {
     public void register (Sugestao sugestao) {
         try {
             Connection conn = factory.getConnection();
-            PreparedStatement statement = conn.prepareStatement("INSERT INTO lm_sugestoes (id_sugestao, id_usuario, nome_trilha_sugerida, data_sugestao) VALUES (?,?,?,?)");
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO lm_sugestoes (id_sugestao, id_usuario, id_trilha, data_sugestao) VALUES (?,?,?,?)");
             statement.setString(1, sugestao.getId().toString());
             statement.setString(2, sugestao.getIdUsuario().toString());
             statement.setString(3, sugestao.getIdTrilha().toString());

@@ -6,6 +6,6 @@ public class DatabaseException extends RuntimeException {
     }
 
     public DatabaseException(String operation, Throwable cause) {
-        super(String.format("Não foi possível %s, verificar SQL. Causa: ", operation) + cause.getCause().getMessage());
+        super(String.format("Não foi possível %s, verificar SQL. Causa: ", operation) + cause);
     }
 }

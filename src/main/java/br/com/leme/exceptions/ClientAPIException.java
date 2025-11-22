@@ -6,6 +6,6 @@ public class ClientAPIException extends RuntimeException {
     }
 
     public ClientAPIException(Throwable cause) {
-        super("Erro envolvendo chamada da API externa, consulte servidor. Causa: " + cause.getCause().getMessage());
+        super("Erro envolvendo chamada da API externa, consulte servidor. Causa: " + cause);
     }
 }

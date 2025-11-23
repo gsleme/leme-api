@@ -7,7 +7,7 @@ import io.quarkus.scheduler.Scheduled;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.jboss.logging.Logger;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -76,7 +76,7 @@ public class PrevisaoScheduler {
                 // 1. Calcular dias na plataforma
                 long diasNaPlataforma = java.time.temporal.ChronoUnit.DAYS.between(
                         usuario.getDataCadastro(),
-                        LocalDate.now()
+                        LocalDateTime.now()
                 );
 
                 // 2. Montar request com dados ATUALIZADOS

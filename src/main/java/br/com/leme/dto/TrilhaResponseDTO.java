@@ -1,6 +1,6 @@
 package br.com.leme.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record TrilhaResponseDTO (
     String id,
@@ -8,5 +8,5 @@ public record TrilhaResponseDTO (
     String descricao,
     String areaFoco,
     int xpTrilha,
-    LocalDate dataCriacao
+    LocalDateTime dataCriacao
 ) {}

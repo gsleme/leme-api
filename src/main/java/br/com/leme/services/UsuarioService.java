@@ -12,6 +12,8 @@ import br.com.leme.exceptions.InvalidIdFormatException;
 import br.com.leme.utils.JwtUtils;
 import br.com.leme.utils.PasswordUtils;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -74,9 +76,10 @@ public class UsuarioService {
 
         String token = JwtUtils.generateToken(
                 usuario.get().getId().toString(),
-                usuario.get().getNome(),
-                usuario.get().getUsername(),
-                usuario.get().getEmail()
+                usuario.get().getArea(),
+                usuario.get().getAcessibilidade(),
+                usuario.get().getModulosConcluidos(),
+                ChronoUnit.DAYS.between(usuario.get().getDataCadastro(), LocalDateTime.now())
         );
 
         return new LoginResponseDTO(token);

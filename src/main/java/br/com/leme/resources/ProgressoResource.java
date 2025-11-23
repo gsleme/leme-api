@@ -16,6 +16,12 @@ public class ProgressoResource {
         this.service = new ProgressoService();
     }
 
+    @GET
+    @Path("/{id}")
+    public Response findById (@PathParam("id") String id) {
+        return Response.ok(service.findById(id)).build();
+    }
+
     @POST
     @Transactional
     public Response register (ProgressoRequestDTO request, @Context UriInfo info) {

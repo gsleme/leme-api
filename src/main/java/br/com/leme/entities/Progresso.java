@@ -1,13 +1,13 @@
 package br.com.leme.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Progresso {
     private UUID id;
     private UUID idUsuario;
     private UUID idModulo;
-    private LocalDate dataConclusao;
+    private LocalDateTime dataConclusao;
 
     public Progresso() {
     }
@@ -16,7 +16,7 @@ public class Progresso {
         this.id = UUID.randomUUID();
         this.idUsuario = idUsuario;
         this.idModulo = idModulo;
-        this.dataConclusao = LocalDate.now();
+        this.dataConclusao = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -43,11 +43,11 @@ public class Progresso {
         this.idModulo = idModulo;
     }
 
-    public LocalDate getDataConclusao() {
+    public LocalDateTime getDataConclusao() {
         return dataConclusao;
     }
 
-    public void setDataConclusao(LocalDate dataConclusao) {
+    public void setDataConclusao(LocalDateTime dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
 }

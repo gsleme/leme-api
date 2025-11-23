@@ -20,7 +20,7 @@ public class SugestaoDAO {
     public Sugestao findById (String id) {
         try {
             Connection conn = factory.getConnection();
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_sugestoes WHERE id_sugestao = ?");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM lm_sugestoes WHERE id_usuario = ? ORDER BY data_sugestao DESC FETCH FIRST 1 ROW ONLY");
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
             Sugestao sugestao = null;
@@ -31,7 +31,7 @@ public class SugestaoDAO {
                     UUID.fromString(resultSet.getString(3))
                 );
                 sugestao.setId(UUID.fromString(resultSet.getString(1)));
-                sugestao.setDataSugestao(resultSet.getDate(4).toLocalDate());
+                sugestao.setDataSugestao(resultSet.getTimestamp(4).toLocalDateTime());
             }
             statement.close();
             conn.close();
@@ -49,7 +49,7 @@ public class SugestaoDAO {
             statement.setString(1, sugestao.getId().toString());
             statement.setString(2, sugestao.getIdUsuario().toString());
             statement.setString(3, sugestao.getIdTrilha().toString());
-            statement.setDate(4, java.sql.Date.valueOf(sugestao.getDataSugestao()));
+            statement.setTimestamp(4, java.sql.Timestamp.valueOf(sugestao.getDataSugestao()));
             statement.execute();
             statement.close();
             conn.close();

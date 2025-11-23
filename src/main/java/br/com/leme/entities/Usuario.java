@@ -1,6 +1,6 @@
 package br.com.leme.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Usuario {
@@ -13,7 +13,7 @@ public class Usuario {
     private String acessibilidade;
     private int modulosConcluidos;
     private int xpTotal;
-    private LocalDate dataCadastro;
+    private LocalDateTime dataCadastro;
 
     public Usuario() {
     }
@@ -28,7 +28,7 @@ public class Usuario {
         this.acessibilidade = acessibilidade;
         this.modulosConcluidos = modulosConcluidos;
         this.xpTotal = xpTotal;
-        this.dataCadastro = LocalDate.now();
+        this.dataCadastro = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -103,11 +103,11 @@ public class Usuario {
         this.xpTotal = xpTotal;
     }
 
-    public LocalDate getDataCadastro() {
+    public LocalDateTime getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(LocalDate dataCadastro) {
+    public void setDataCadastro(LocalDateTime dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
 }

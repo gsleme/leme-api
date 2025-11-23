@@ -1,10 +1,10 @@
 package br.com.leme.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record ProgressoResponseDTO(
     String id,
     String idUsuario,
     String idModulo,
-    LocalDate dataConclusao
+    LocalDateTime dataConclusao
 ) {}

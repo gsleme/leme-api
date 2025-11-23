@@ -1,13 +1,13 @@
 package br.com.leme.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Sugestao {
     private UUID id;
     private UUID idUsuario;
     private UUID idTrilha;
-    private LocalDate dataSugestao;
+    private LocalDateTime dataSugestao;
 
     public Sugestao() {
     }
@@ -16,7 +16,7 @@ public class Sugestao {
         this.id = UUID.randomUUID();
         this.idUsuario = idUsuario;
         this.idTrilha = idTrilha;
-        this.dataSugestao = LocalDate.now();
+        this.dataSugestao = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -43,11 +43,11 @@ public class Sugestao {
         this.idTrilha = idTrilha;
     }
 
-    public LocalDate getDataSugestao() {
+    public LocalDateTime getDataSugestao() {
         return dataSugestao;
     }
 
-    public void setDataSugestao(LocalDate dataSugestao) {
+    public void setDataSugestao(LocalDateTime dataSugestao) {
         this.dataSugestao = dataSugestao;
     }
 }

@@ -19,14 +19,16 @@ public class JwtUtils {
 
     public static String generateToken (
         String id,
-        String nome,
-        String username,
-        String email
+        String area,
+        String acessibilidade,
+        int modulosConcluidos,
+        long tempoPlataformaDias
     ) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("nome", nome);
-        claims.put("username", username);
-        claims.put("email", email);
+        claims.put("area", area);
+        claims.put("acessibilidade", acessibilidade);
+        claims.put("modulosConcluidos", modulosConcluidos);
+        claims.put("tempoPlataformaDias", tempoPlataformaDias);
 
         JwtClaimsBuilder builder = Jwt.claims(claims)
                 .subject(id)

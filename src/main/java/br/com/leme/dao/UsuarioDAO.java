@@ -37,7 +37,7 @@ public class UsuarioDAO {
                     resultSet.getInt(9)
                 );
                 usuario.setId(UUID.fromString(resultSet.getString(1)));
-                usuario.setDataCadastro(resultSet.getDate(10).toLocalDate());
+                usuario.setDataCadastro(resultSet.getTimestamp(10).toLocalDateTime());
                 usuarios.add(usuario);
             }
             statement.close();
@@ -68,7 +68,7 @@ public class UsuarioDAO {
                     resultSet.getInt(9)
                 );
                 usuario.setId(UUID.fromString(resultSet.getString(1)));
-                usuario.setDataCadastro(resultSet.getDate(10).toLocalDate());
+                usuario.setDataCadastro(resultSet.getTimestamp(10).toLocalDateTime());
             }
             statement.close();
             conn.close();
@@ -92,7 +92,7 @@ public class UsuarioDAO {
             statement.setString(7, usuario.getAcessibilidade());
             statement.setInt(8, usuario.getModulosConcluidos());
             statement.setInt(9, usuario.getXpTotal());
-            statement.setDate(10, java.sql.Date.valueOf(usuario.getDataCadastro()));
+            statement.setTimestamp(10, java.sql.Timestamp.valueOf(usuario.getDataCadastro()));
             statement.execute();
             statement.close();
             conn.close();
@@ -114,7 +114,7 @@ public class UsuarioDAO {
             statement.setString(6, usuario.getAcessibilidade());
             statement.setInt(7, usuario.getModulosConcluidos());
             statement.setInt(8, usuario.getXpTotal());
-            statement.setDate(9, java.sql.Date.valueOf(usuario.getDataCadastro()));
+            statement.setTimestamp(9, java.sql.Timestamp.valueOf(usuario.getDataCadastro()));
             statement.setString(10, usuario.getId().toString());
             statement.executeUpdate();
             statement.close();

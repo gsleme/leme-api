@@ -33,7 +33,7 @@ public class TrilhaDAO {
                     resultSet.getInt(5)
                 );
                 trilha.setId(UUID.fromString(resultSet.getString(1)));
-                trilha.setDataCriacao(resultSet.getDate(6).toLocalDate());
+                trilha.setDataCriacao(resultSet.getTimestamp(6).toLocalDateTime());
                 trilhas.add(trilha);
             }
             statement.close();
@@ -60,7 +60,7 @@ public class TrilhaDAO {
                     resultSet.getInt(5)
                 );
                 trilha.setId(UUID.fromString(resultSet.getString(1)));
-                trilha.setDataCriacao(resultSet.getDate(6).toLocalDate());
+                trilha.setDataCriacao(resultSet.getTimestamp(6).toLocalDateTime());
             }
             statement.close();
             conn.close();

@@ -1,6 +1,6 @@
 package br.com.leme.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Previsao {
@@ -8,7 +8,7 @@ public class Previsao {
     private UUID idUsuario;
     private double taxaSucesso;
     private String categoria;
-    private LocalDate dataPrevisao;
+    private LocalDateTime dataPrevisao;
 
     public Previsao() {
     }
@@ -18,7 +18,7 @@ public class Previsao {
         this.idUsuario = idUsuario;
         this.taxaSucesso = taxaSucesso;
         this.categoria = categoria;
-        this.dataPrevisao = LocalDate.now();
+        this.dataPrevisao = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -53,11 +53,11 @@ public class Previsao {
         this.categoria = categoria;
     }
 
-    public LocalDate getDataPrevisao() {
+    public LocalDateTime getDataPrevisao() {
         return dataPrevisao;
     }
 
-    public void setDataPrevisao(LocalDate dataPrevisao) {
+    public void setDataPrevisao(LocalDateTime dataPrevisao) {
         this.dataPrevisao = dataPrevisao;
     }
 }

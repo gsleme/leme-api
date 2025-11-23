@@ -1,6 +1,6 @@
 package br.com.leme.entities;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Trilha {
@@ -9,7 +9,7 @@ public class Trilha {
     private String descricao;
     private String areaFoco;
     private int xpTrilha;
-    private LocalDate dataCriacao;
+    private LocalDateTime dataCriacao;
 
     public Trilha() {
     }
@@ -20,7 +20,7 @@ public class Trilha {
         this.descricao = descricao;
         this.areaFoco = areaFoco;
         this.xpTrilha = xpTrilha;
-        this.dataCriacao = LocalDate.now();
+        this.dataCriacao = LocalDateTime.now();
     }
 
     public UUID getId() {
@@ -63,11 +63,11 @@ public class Trilha {
         this.xpTrilha = xpTrilha;
     }
 
-    public LocalDate getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDate dataCriacao) {
+    public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 }

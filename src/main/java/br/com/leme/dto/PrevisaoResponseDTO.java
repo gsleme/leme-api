@@ -1,11 +1,11 @@
 package br.com.leme.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public record PrevisaoResponseDTO(
     String id,
     String idUsuario,
     double taxaSucesso,
     String categoria,
-    LocalDate dataPrevisao
+    LocalDateTime dataPrevisao
 ) {}
